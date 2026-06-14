@@ -25,7 +25,11 @@ function App() {
     const loadUserData = async () => {
       try {
         const userRef = doc(db, 'users', 'ujjwal_profile');
-        const docSnap = await getDoc(userRef);
+        // Add a 3-second timeout so it doesn't hang on the loading screen
+        const docSnap = await Promise.race([
+          getDoc(userRef),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Firebase connection timeout')), 3000))
+        ]);
         
         if (docSnap.exists()) {
           const data = docSnap.data();

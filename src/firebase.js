@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDfG53dg_KgTI9mlu_nMi4pqnCbIPBcbf8",
-  authDomain: "footprinttracker-499405.firebaseapp.com",
-  projectId: "footprinttracker-499405",
-  storageBucket: "footprinttracker-499405.firebasestorage.app",
-  messagingSenderId: "1022849471707",
-  appId: "1:1022849471707:web:100f1ff838d9ba60d728fe",
-  measurementId: "G-Q1P8B23ML9"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);

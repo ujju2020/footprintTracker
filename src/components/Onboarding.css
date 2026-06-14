@@ -1,0 +1,92 @@
+.onboarding-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-image: radial-gradient(circle at top right, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.15) 0%, transparent 50%);
+}
+
+.onboarding-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.onboarding-header {
+  margin-bottom: 2rem;
+}
+
+.onboarding-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.onboarding-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.question-section {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.question-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.option-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.option-icon {
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.option-btn:hover .option-icon {
+  color: var(--text-primary);
+}
+
+.option-btn.selected {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: var(--neon-green);
+}
+
+.option-btn.selected .option-icon {
+  color: var(--neon-green);
+  filter: drop-shadow(0 0 8px var(--neon-green-glow));
+}

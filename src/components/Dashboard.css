@@ -1,0 +1,148 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.main-col, .side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Recent Activities */
+.recent-activities {
+  padding: 1.5rem;
+}
+
+.recent-activities h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.activity-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.activity-icon.transit {
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.activity-icon.diet {
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.activity-details {
+  flex-grow: 1;
+}
+
+.activity-details h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+}
+
+.activity-details span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.activity-impact {
+  font-weight: 700;
+}
+
+.activity-impact.positive {
+  color: var(--neon-green);
+}
+
+/* Badges Panel */
+.badges-panel {
+  padding: 1.5rem;
+}
+
+.badges-panel h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.badge-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.badge-icon.gold {
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  color: #000;
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+.badge-icon.green {
+  background: linear-gradient(135deg, #4ade80, #16a34a);
+  color: #000;
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.3);
+}
+
+.badge-item span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

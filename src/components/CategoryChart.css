@@ -1,0 +1,23 @@
+.category-chart {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+
+.category-chart h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.chart-container {
+  flex-grow: 1;
+  width: 100%;
+  position: relative;
+}
+
+/* Customizing Recharts generic text to fit our theme */
+.recharts-legend-item-text {
+  color: var(--text-primary) !important;
+}

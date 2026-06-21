@@ -136,6 +136,14 @@
   width: 100%;
 }
 
+.mobile-close-btn {
+  display: none;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .sidebar {
     display: none;
@@ -190,12 +198,4 @@
   .content-inner {
     padding: 1rem;
   }
-}
-
-.mobile-close-btn {
-  display: none;
-}
-
-.mobile-menu-btn {
-  display: none;
 }

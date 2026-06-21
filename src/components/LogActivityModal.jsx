@@ -17,7 +17,7 @@ const LogActivityModal = ({ isOpen, onClose, onLog }) => {
       <div className="modal-content glass-panel" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h2>Log Activity</h2>
-          <button className="close-btn" onClick={onClose}><X size={24} /></button>
+          <button type="button" className="close-btn" onClick={onClose} aria-label="Close activity modal"><X size={24} /></button>
         </div>
         
         <p className="modal-subtitle">Select an eco-friendly action you took today:</p>
@@ -26,6 +26,7 @@ const LogActivityModal = ({ isOpen, onClose, onLog }) => {
           {presetActivities.map((activity, idx) => (
             <button 
               key={idx} 
+              type="button"
               className="activity-card"
               onClick={() => {
                 onLog({

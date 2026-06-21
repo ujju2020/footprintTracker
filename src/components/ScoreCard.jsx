@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { ArrowDown, TrendingDown } from 'lucide-react';
 import './ScoreCard.css';
 
@@ -43,6 +45,11 @@ const ScoreCard = ({ score = 4.2, previousScore = 4.8 }) => {
       </div>
     </div>
   );
+};
+
+ScoreCard.propTypes = {
+  score: PropTypes.number.isRequired,
+  previousScore: PropTypes.number,
 };
 
 export default ScoreCard;

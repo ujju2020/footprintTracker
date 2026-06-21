@@ -3,6 +3,7 @@ import ScoreCard from './ScoreCard';
 import CategoryChart from './CategoryChart';
 import LogActivityModal from './LogActivityModal';
 import { Plus, Award } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import './Dashboard.css';
 
 const Dashboard = ({ userName, score, categoryBreakdown, recentActivities = [], onLogActivity }) => {
@@ -12,7 +13,7 @@ const Dashboard = ({ userName, score, categoryBreakdown, recentActivities = [], 
     <>
       <div className="dashboard-header">
         <div>
-          <h1>Welcome back, {userName}!</h1>
+          <h1>Welcome back, <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(userName) }} />!</h1>
           <p>Here is your environmental impact at a glance.</p>
         </div>
         <button className="btn-primary" onClick={() => setIsModalOpen(true)}>

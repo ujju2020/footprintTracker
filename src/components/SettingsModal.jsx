@@ -10,6 +10,7 @@ const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName, 
   // Reset input when modal opens/closes
   useEffect(() => {
     if (isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setNameInput(currentName);
       setNotifications(userSettings.notifications);
       setPrivacy(userSettings.privacy);
@@ -39,7 +40,7 @@ const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName, 
             {settingType === 'privacy' && 'Privacy Settings'}
             {settingType === 'delete_account' && 'Delete Account'}
           </h2>
-          <button className="close-btn" onClick={onClose} aria-label="Close settings"><X size={24} /></button>
+          <button type="button" className="close-btn" onClick={onClose} aria-label="Close settings"><X size={24} /></button>
         </div>
         
         <div className="settings-modal-body">
@@ -99,12 +100,12 @@ const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName, 
         </div>
 
         <div className="settings-modal-footer">
-          <button className="btn-secondary" onClick={onClose}>Cancel</button>
+          <button type="button" className="btn-secondary" onClick={onClose}>Cancel</button>
           
           {settingType === 'delete_account' ? (
-            <button className="btn-primary danger-bg" onClick={onClose}>Yes, Delete</button>
+            <button type="button" className="btn-primary danger-bg" onClick={onClose}>Yes, Delete</button>
           ) : (
-            <button className="btn-primary" onClick={handleSave}>
+            <button type="button" className="btn-primary" onClick={handleSave}>
               <Save size={18} /> Save Changes
             </button>
           )}

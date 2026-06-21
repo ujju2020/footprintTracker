@@ -20,13 +20,19 @@
   height: 100vh;
 }
 
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
 .logo {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   font-size: 1.5rem;
   font-weight: 800;
-  margin-bottom: 3rem;
 }
 
 .logo-icon {
@@ -133,8 +139,50 @@
 @media (max-width: 768px) {
   .sidebar {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    z-index: 100;
+    background: var(--bg-panel-solid);
+    border-radius: 0;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
   }
-  
+
+  .sidebar.mobile-open {
+    display: flex;
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    backdrop-filter: blur(4px);
+  }
+
+  .mobile-close-btn {
+    display: flex;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  .mobile-menu-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .mobile-header {
     display: flex;
   }
@@ -142,4 +190,12 @@
   .content-inner {
     padding: 1rem;
   }
+}
+
+.mobile-close-btn {
+  display: none;
+}
+
+.mobile-menu-btn {
+  display: none;
 }

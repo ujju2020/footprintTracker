@@ -78,3 +78,26 @@ To build the production bundle locally:
 ```bash
 npm run build
 ```
+
+## 🏆 Challenge Information
+
+### Chosen Vertical
+**Eco-Tracking / Sustainable Lifestyle Assistant:** We chose this vertical to empower individuals to track their carbon emissions interactively. By making carbon tracking dynamic, rewarding, and mobile-friendly, users are incentivized to adopt greener habits like public transit or plant-based meals.
+
+### Approach and Logic
+The solution is built around a smart, dynamic interface that computes an estimated carbon footprint based on daily inputs. 
+- **State Management:** We use React state to instantly reflect the impact of logged activities (e.g., subtracting CO2e when logging a vegan meal).
+- **Gamification:** The logic incorporates streaks, badges, and targets to keep users motivated. 
+- **Cloud Sync:** Using Firebase, all logic automatically syncs across the user's devices so they can log from their phone on the go and review metrics on a desktop.
+
+### How the Solution Works
+1. **Onboarding:** The user provides their baseline lifestyle metrics (Diet, Commute, Energy use).
+2. **Dashboard:** The main dashboard calculates their current footprint and compares it against targets. 
+3. **Smart Logging:** A modal allows users to log specific actions. The app calculates the CO2 impact of each action and instantly updates the global state.
+4. **Goals and Profile:** Users can set active sustainability goals and adjust application settings (like push notifications and privacy) to customize their experience.
+
+### Assumptions Made
+- We assume standard average CO2 equivalent (CO2e) savings for the preset activities (e.g., biking saves ~2.5kg CO2e compared to driving).
+- We assume users will have access to modern browsers or devices capable of running a Capacitor-wrapped web app.
+- We assume the user has a single device or utilizes the Firebase integration for offline-first multi-device syncing.
+- The `v1.0` MVP focuses strictly on individual consumer tracking rather than enterprise footprint tracking.

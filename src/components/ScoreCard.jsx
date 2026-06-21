@@ -8,7 +8,7 @@ const ScoreCard = ({ score = 4.2, previousScore = 4.8 }) => {
     <div className="score-card glass-panel">
       <div className="score-header">
         <h2>Your Carbon Footprint</h2>
-        <span className="badge text-gradient">Good Standing</span>
+        <span className="badge"><span className="text-gradient">Good Standing</span></span>
       </div>
       
       <div className="score-body">

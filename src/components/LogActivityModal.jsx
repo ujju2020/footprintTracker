@@ -32,10 +32,10 @@ const LogActivityModal = ({ isOpen, onClose, onLog }) => {
                   title: activity.title,
                   desc: activity.desc,
                   impact: activity.impact,
-                  icon: activity.icon === <Bike size={24} /> ? '🚲' : 
-                        activity.icon === <Trees size={24} /> ? '🌲' :
-                        activity.icon === <Utensils size={24} /> ? '🥗' :
-                        activity.icon === <Zap size={24} /> ? '⚡' : '🛍️',
+                  icon: activity.type === 'transit' ? '🚲' : 
+                        activity.type === 'nature' ? '🌲' :
+                        activity.type === 'diet' ? '🥗' :
+                        activity.type === 'energy' ? '⚡' : '🛍️',
                   type: activity.type
                 });
                 onClose();

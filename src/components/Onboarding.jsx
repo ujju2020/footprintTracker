@@ -88,6 +88,7 @@ const Onboarding = ({ onComplete }) => {
                 key={idx} 
                 className={`option-btn ${answers[questions[currentStep].id] === option.value ? 'selected' : ''}`}
                 onClick={() => handleSelect(questions[currentStep].id, option.value)}
+                aria-pressed={answers[questions[currentStep].id] === option.value}
               >
                 <div className="option-icon">{option.icon}</div>
                 <span>{option.label}</span>

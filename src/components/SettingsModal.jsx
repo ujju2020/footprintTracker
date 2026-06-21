@@ -45,8 +45,9 @@ const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName, 
         <div className="settings-modal-body">
           {settingType === 'edit_profile' && (
             <div className="form-group">
-              <label>Display Name</label>
+              <label htmlFor="displayNameInput">Display Name</label>
               <input 
+                id="displayNameInput"
                 type="text" 
                 value={nameInput} 
                 onChange={(e) => setNameInput(e.target.value)}
@@ -58,8 +59,9 @@ const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName, 
 
           {settingType === 'notifications' && (
             <div className="form-group">
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+              <label htmlFor="notificationsToggle" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                 <input 
+                  id="notificationsToggle"
                   type="checkbox" 
                   checked={notifications} 
                   onChange={(e) => setNotifications(e.target.checked)} 
@@ -73,8 +75,9 @@ const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName, 
 
           {settingType === 'privacy' && (
             <div className="form-group">
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+              <label htmlFor="privacyToggle" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                 <input 
+                  id="privacyToggle"
                   type="checkbox" 
                   checked={privacy} 
                   onChange={(e) => setPrivacy(e.target.checked)} 

@@ -39,7 +39,7 @@ const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName, 
             {settingType === 'privacy' && 'Privacy Settings'}
             {settingType === 'delete_account' && 'Delete Account'}
           </h2>
-          <button className="close-btn" onClick={onClose}><X size={24} /></button>
+          <button className="close-btn" onClick={onClose} aria-label="Close settings"><X size={24} /></button>
         </div>
         
         <div className="settings-modal-body">

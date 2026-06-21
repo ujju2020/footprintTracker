@@ -23,7 +23,7 @@ const Layout = ({ children, activeTab, onTabChange, userName }) => {
             <Leaf className="logo-icon" size={32} />
             <span className="text-gradient">Footprint Tracker</span>
           </div>
-          <button className="mobile-close-btn" onClick={() => setIsMobileMenuOpen(false)}>
+          <button className="mobile-close-btn" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
             <X size={24} />
           </button>
         </div>
@@ -56,7 +56,7 @@ const Layout = ({ children, activeTab, onTabChange, userName }) => {
       
       <main className="main-content">
         <header className="mobile-header glass-panel">
-          <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(true)}>
+          <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(true)} aria-label="Open menu">
             <Menu size={24} />
           </button>
           <div className="logo">

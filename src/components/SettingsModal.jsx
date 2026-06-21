@@ -12,10 +12,10 @@ const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName, 
     if (isOpen) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setNameInput(currentName);
-      setNotifications(userSettings.notifications);
-      setPrivacy(userSettings.privacy);
+      setNotifications(userSettings?.notifications ?? true);
+      setPrivacy(userSettings?.privacy ?? false);
     }
-  }, [isOpen, currentName, userSettings]);
+  }, [isOpen, currentName, userSettings?.notifications, userSettings?.privacy]);
 
   if (!isOpen) return null;
 

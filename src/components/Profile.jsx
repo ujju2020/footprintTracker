@@ -3,7 +3,7 @@ import { Award, Shield, User, Leaf } from 'lucide-react';
 import SettingsModal from './SettingsModal';
 import './Profile.css';
 
-const Profile = ({ userName, onSaveName, recentActivities, score }) => {
+const Profile = ({ userName, onSaveName, recentActivities, score, userSettings, onSaveSettings }) => {
   const [modalConfig, setModalConfig] = useState({ isOpen: false, type: null });
 
   const totalSaved = recentActivities.reduce((acc, act) => acc + Math.abs(act.impact), 0).toFixed(1);
@@ -103,6 +103,8 @@ const Profile = ({ userName, onSaveName, recentActivities, score }) => {
         settingType={modalConfig.type}
         currentName={userName}
         onSaveName={onSaveName}
+        userSettings={userSettings}
+        onSaveSettings={onSaveSettings}
       />
     </div>
   );

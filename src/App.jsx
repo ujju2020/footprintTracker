@@ -19,6 +19,7 @@ function App() {
   });
   const [activeGoals, setActiveGoals] = useState([]);
   const [recentActivities, setRecentActivities] = useState([]);
+  const [userSettings, setUserSettings] = useState({ notifications: true, privacy: false });
 
   // Load from Firebase on Mount
   useEffect(() => {
@@ -38,6 +39,7 @@ function App() {
           setCarbonData(data.carbonData || { score: 0, categoryBreakdown: [] });
           setActiveGoals(data.activeGoals || []);
           setRecentActivities(data.recentActivities || []);
+          setUserSettings(data.userSettings || { notifications: true, privacy: false });
         }
       } catch (error) {
         console.error("Error fetching user data from Firebase:", error);
@@ -58,6 +60,7 @@ function App() {
         carbonData,
         activeGoals,
         recentActivities,
+        userSettings,
         ...updates // Merge latest changes to avoid race conditions
       }, { merge: true });
     } catch (error) {
@@ -100,6 +103,12 @@ function App() {
     syncToFirebase({ userName: newName });
   };
 
+  const handleSaveSettings = (newSettings) => {
+    const updatedSettings = { ...userSettings, ...newSettings };
+    setUserSettings(updatedSettings);
+    syncToFirebase({ userSettings: updatedSettings });
+  };
+
   if (isInitializing) {
     return (
       <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0f172a', color: '#22c55e' }}>
@@ -139,6 +148,8 @@ function App() {
             onSaveName={handleSaveName}
             recentActivities={recentActivities} 
             score={carbonData.score} 
+            userSettings={userSettings}
+            onSaveSettings={handleSaveSettings}
           />
         );
       default:

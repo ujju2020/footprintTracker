@@ -2,21 +2,29 @@ import { useState, useEffect } from 'react';
 import { X, Save, AlertTriangle } from 'lucide-react';
 import './SettingsModal.css';
 
-const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName }) => {
+const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName, userSettings = { notifications: true, privacy: false }, onSaveSettings }) => {
   const [nameInput, setNameInput] = useState(currentName);
+  const [notifications, setNotifications] = useState(userSettings.notifications);
+  const [privacy, setPrivacy] = useState(userSettings.privacy);
 
   // Reset input when modal opens/closes
   useEffect(() => {
     if (isOpen) {
       setNameInput(currentName);
+      setNotifications(userSettings.notifications);
+      setPrivacy(userSettings.privacy);
     }
-  }, [isOpen, currentName]);
+  }, [isOpen, currentName, userSettings]);
 
   if (!isOpen) return null;
 
   const handleSave = () => {
     if (settingType === 'edit_profile' && nameInput.trim() !== '') {
       onSaveName(nameInput.trim());
+    } else if (settingType === 'notifications') {
+      onSaveSettings({ notifications });
+    } else if (settingType === 'privacy') {
+      onSaveSettings({ privacy });
     }
     onClose();
   };
@@ -48,10 +56,33 @@ const SettingsModal = ({ isOpen, onClose, settingType, currentName, onSaveName }
             </div>
           )}
 
-          {(settingType === 'notifications' || settingType === 'privacy') && (
-            <div className="coming-soon-message">
-              <p>This feature is not yet connected to a backend in this MVP version.</p>
-              <p>Settings will be available in v2.0!</p>
+          {settingType === 'notifications' && (
+            <div className="form-group">
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                <input 
+                  type="checkbox" 
+                  checked={notifications} 
+                  onChange={(e) => setNotifications(e.target.checked)} 
+                  style={{ width: '1.2rem', height: '1.2rem', cursor: 'pointer' }}
+                />
+                Enable Push Notifications
+              </label>
+              <p className="input-hint" style={{ marginTop: '0.5rem' }}>Receive reminders to log your daily activities.</p>
+            </div>
+          )}
+
+          {settingType === 'privacy' && (
+            <div className="form-group">
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                <input 
+                  type="checkbox" 
+                  checked={privacy} 
+                  onChange={(e) => setPrivacy(e.target.checked)} 
+                  style={{ width: '1.2rem', height: '1.2rem', cursor: 'pointer' }}
+                />
+                Make Profile Public
+              </label>
+              <p className="input-hint" style={{ marginTop: '0.5rem' }}>Allow other users to see your carbon footprint and achievements on leaderboards.</p>
             </div>
           )}
 

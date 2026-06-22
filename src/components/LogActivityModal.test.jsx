@@ -19,8 +19,25 @@ describe('LogActivityModal Component', () => {
   it('calls onLog when an activity is clicked', () => {
     const logMock = vi.fn();
     render(<LogActivityModal isOpen={true} onClose={() => {}} onLog={logMock} />);
-    const activityBtn = screen.getByText('Biked to Work');
-    fireEvent.click(activityBtn);
+    
+    // Click transit
+    fireEvent.click(screen.getByText('Biked to Work'));
     expect(logMock).toHaveBeenCalled();
+    
+    // Click nature
+    fireEvent.click(screen.getByText('Planted a Tree'));
+    expect(logMock).toHaveBeenCalledTimes(2);
+
+    // Click diet
+    fireEvent.click(screen.getByText('Vegan Meal'));
+    expect(logMock).toHaveBeenCalledTimes(3);
+
+    // Click energy
+    fireEvent.click(screen.getByText('Line Dried Clothes'));
+    expect(logMock).toHaveBeenCalledTimes(4);
+
+    // Click shopping
+    fireEvent.click(screen.getByText('Used Reusable Bag'));
+    expect(logMock).toHaveBeenCalledTimes(5);
   });
 });

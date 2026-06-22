@@ -38,9 +38,21 @@ describe('Layout Component', () => {
     const openBtn = screen.getByLabelText('Open menu');
     fireEvent.click(openBtn);
     // Menu is open
+    
+    // Click close btn
     const closeBtn = screen.getByLabelText('Close menu');
     fireEvent.click(closeBtn);
     // Menu is closed
+    
+    // Click open again
+    fireEvent.click(openBtn);
+    
+    // Click overlay
+    // The overlay is the div just before the aside, we can find it by getting the aside and finding its previous sibling
+    const sidebar = screen.getByRole('complementary'); // aside
+    const overlay = sidebar.previousSibling;
+    fireEvent.click(overlay);
+    
     expect(screen.getByText('Child Content')).toBeTruthy();
   });
 });

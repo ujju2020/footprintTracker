@@ -21,17 +21,25 @@ describe('SettingsModal Component', () => {
   it('calls onSaveSettings for notifications', () => {
     const saveMock = vi.fn();
     render(<SettingsModal isOpen={true} settingType="notifications" userSettings={{ notifications: false }} onClose={() => {}} onSaveSettings={saveMock} />);
+    
+    const toggle = screen.getByLabelText('Enable Push Notifications');
+    fireEvent.click(toggle);
+
     const saveBtn = screen.getByText('Save Changes');
     fireEvent.click(saveBtn);
-    expect(saveMock).toHaveBeenCalled();
+    expect(saveMock).toHaveBeenCalledWith({ notifications: true });
   });
 
   it('calls onSaveSettings for privacy', () => {
     const saveMock = vi.fn();
     render(<SettingsModal isOpen={true} settingType="privacy" userSettings={{ privacy: false }} onClose={() => {}} onSaveSettings={saveMock} />);
+    
+    const toggle = screen.getByLabelText('Make Profile Public');
+    fireEvent.click(toggle);
+
     const saveBtn = screen.getByText('Save Changes');
     fireEvent.click(saveBtn);
-    expect(saveMock).toHaveBeenCalled();
+    expect(saveMock).toHaveBeenCalledWith({ privacy: true });
   });
 
   it('calls onClose for delete_account', () => {
